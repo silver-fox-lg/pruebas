@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Inscripción a la Red de Negocios</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script>
+        var ahuachapan=new Array("-","Ahuachapán","Apaneca","Atiquizaya","Concepción de Ataco","El Refugio","Guaymango","Jujutla","San Francisco Menéndez","San Lorenzo","San Pedro Puxtla","Tacuba","Turín");
+        var cabanas=new Array("-","Cinquera","Villa Dolores","Guacotecti","Ilobasco","Jutiapa","San Isidro","Sensuntepeque","Tejutepeque","Victoria");
+        var chalatenango=new Array("-","Agua Caliente","Arcatao","Azacualpa","Chalatenango","Citalá","Comalapa","Concepción Quezaltepeque","Dulce Nombre de María","El Carrizal","El Paraíso","La Laguna","La Palma","La Reina","Las Vueltas","Nombre de Jesús","Nueva Concepción","Nueva Trinidad","Ojos de Agua","Potonico","San Antonio de la Cruz","San Antonio Los Ranchos","San Fernando","San Francisco Lempa","San Francisco Morazán","San Ignacio","San Isidro Labrador","San José Cancasque","San José Las Flores","San Luis del Carmen","San Miguel de Mercedes","San Rafael","Santa Rita","Tejutla");
+        var cuscatlan=new Array("-","Candelaria","Cojutepeque","El Carmen","El Rosario","Monte San Juan","Oratorio de Concepción","San Bartolomé Perulapía","San Cristóbal","San José Guayabal","San Pedro Perulapán","San Rafael Cedros","San Ramón","Santa Cruz Analquito","Santa Cruz Michapa","Suchitoto","Tenancingo");
+        var la_libertad=new Array("-","Antiguo Cuscatlán","Chiltiupán","Ciudad Arce","Colón","Comasagua","Huizúcar","Jayaque","Jicalapa","La Libertad","Nuevo Cuscatlán","Quezaltepeque","Sacacoyo","San José Villanueva","San Juan Opico","San Matías","San Pablo Tacachico","Santa Tecla","Talnique","Tamanique","Teotepeque","Tepecoyo","Zaragoza");
+        var la_paz=new Array("-","Cuyultitán","Rosario de La Paz","Jerusalén","Mercedes La Ceiba","Olocuilta","Paraíso de Osorio","San Antonio Masahuat","San Emigdio","San Francisco Chinameca","San Juan Nonualco","San Juan Talpa","San Juan Tepezontes","San Luis La Herradura","San Luis Talpa","San Miguel Tepezontes","San Pedro Masahuat","San Pedro Nonualco","San Rafael Obrajuelo","Santa María Ostuma","Santiago Nonualco","Tapalhuaca","Zacatecoluca");
+        var la_union=new Array("-","Anamorós","Bolívar","Concepción de Oriente","Conchagua","El Carmen","El Sauce","Intipucá","La Unión","Lislique","Meanguera del Golfo","Nueva Esparta","Pasaquina","Polorós","San Alejo","San José","Santa Rosa de Lima","Yayantique","Yucuaiquín");
+        var morazan=new Array("-","Arambala","Cacaopera","Chilanga","Corinto","Delicias de Concepción","El Divisadero","El Rosario","Gualococti","Guatajiagua","Joateca","Jocoaitique","Jocoro","Lolotiquillo","Meanguera","Osicala","Perquín","San Carlos","San Fernando","San Francisco Gotera","San Isidro","San Simón","Sensembra","Sociedad","Torola","Yamabal","Yoloaiquín");
+        var san_miguel=new Array("-","Carolina","Chapeltique","Chinameca","Chirilagua","Ciudad Barrios","Comacarán","El Tránsito","Lolotique","Moncagua","Nueva Guadalupe","Nuevo Edén de San Juan","Quelepa","San Antonio del Mosco","San Gerardo","San Jorge","San Luis de la Reina","San Miguel","San Rafael Oriente","Sesori","Uluazapa");
+        var san_salvador=new Array("-","Aguilares","Apopa","Ayutuxtepeque","Cuscatancingo","Delgado","El Paisnal","Guazapa","Ilopango","Mejicanos","Nejapa","Panchimalco","Rosario de Mora","San Marcos","San Martín","San Salvador","Santiago Texacuangos","Santo Tomás","Soyapango","Tonacatepeque");
+        var san_vicente=new Array("-","Apastepeque","Guadalupe","San Cayetano Istepeque","San Esteban Catarina","San Ildefonso","San Lorenzo","San Sebastián","San Vicente","Santa Clara","Santo Domingo","Tecoluca","Tepetitán","Verapaz");
+        var santa_ana=new Array("-","Candelaria de la Frontera","Chalchuapa","Coatepeque","El Congo","El Porvenir","Masahuat","Metapán","San Antonio Pajonal","San Sebastián Salitrillo","Santa Ana","Santa Rosa Guachipilín","Santiago de la Frontera","Texistepeque");
+        var sonsonate=new Array("-","Acajutla","Armenia","Caluco","Cuisnahuat","Izalco","Juayúa","Nahuizalco","Nahulingo","Salcoatitán","San Antonio del Monte","San Julián","Santa Catarina Masahuat","Santa Isabel Ishuatán","Santo Domingo de Guzmán","Sonsonate","Sonzacate");
+        var usulutan=new Array("-","Alegría","Berlín","California","Concepción Batres","El Triunfo","Ereguayquín","Estanzuelas","Jiquilisco","Jucuapa","Jucuarán","Mercedes Umaña","Nueva Granada","Ozatlán","Puerto El Triunfo","San Agustín","San Buenaventura","San Dionisio","San Francisco Javier","Santa Elena","Santa María","Santiago de María","Tecapán","Usulután");
+            
+        var todosMuni = [
+            [],
+            ahuachapan,
+            cabanas,
+            chalatenango,
+            cuscatlan,
+            la_libertad,
+            la_paz,
+            la_union,
+            morazan,
+            san_miguel,
+            san_salvador,
+            san_vicente,
+            santa_ana,
+            sonsonate,
+            usulutan,
+        ];
+            
+        function cambiar_municipio(){
+            var dep
+            dep = document.f1.departament[document.f1.departament.selectedIndex].value
+            if (dep != 0) {
+                mis_muni = todosMuni[Number(dep.substr(0,2))]
+                num_muni = mis_muni.length
+                document.f1.municipalitie.length = num_muni
+                for (i=0;i<num_muni;i++) {
+                    document.f1.municipalitie.options[i].value=mis_muni[i]
+                    document.f1.municipalitie.options[i].text=mis_muni[i]
+                }
+            }else{
+                document.f1.municipalitie.length = 1
+                document.f1.municipalitie.options[0].value = "-"
+                document.f1.municipalitie.options[0].text = "-"
+            }
+            document.f1.mmunicipalitie.options[0].selected = true
+        }
+    </script>
+    <style>
+        h2 {
+            color: rgb(40, 40, 189);
+        }
+    </style>
+</head>
+<body style="padding: 10px;">
+    <h1>Formulario de Inscripción a la Red de Negocios</h1>
+    <form action="" name="f1" id="f1">
+        <h2>Datos personales</h2>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="name">Nombre*</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="surnames">Apellidos*</label>
+                <input type="text" id="surname" name="surname" class="form-control" required>
+            </div>
+        </div>
+        <h2>Datos contacto</h2>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="email_user">Correo Electrónico*</label>
+                <input type="email" id="email_user" name="email_user" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Teléfono*</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="departament">Departamento*</label>
+                <select name=departament id="departament" onchange="cambiar_municipio()" class="form-control" required>
+                    <option value="0" selected>Seleccione...</option>
+                    <option value="01,ahuachapan">Ahuachapán</option>
+                    <option value="02,cabanas">Cabañas</option>
+                    <option value="03,chalatenango">Chalatenango</option>
+                    <option value="04,cuscatlan">Cuscatlán</option>
+                    <option value="05,la_libertad">La Libertad</option>
+                    <option value="06,la_paz">La Paz</option>
+                    <option value="07,la_union">La Unión</option>
+                    <option value="08,morazan">Morazán</option>
+                    <option value="09,san_miguel">San Miguel</option>
+                    <option value="10,san_salvador">San Salvador</option>
+                    <option value="11,san_vicente">San Vicente</option>
+                    <option value="12,santa_ana">Santa Ana</option>
+                    <option value="13,sonsonate">Sonsonate</option>
+                    <option value="14,usulutan">Usulután</option>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="municipalitie">Municipio</label>
+                <select name=municipalitie id="municipalitie" class="form-control">
+                    <option value="-">-</option>
+                </select>
+            </div>
+        </div>
+        <h2>Datos de la empresa</h2>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="razon">Razón social*</label>
+                <input type="text" id="razon" name="razon" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email_empre">Email Institucional</label>
+                <input type="email" id="email_empre" name="email_empre" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="face">Facebook</label>
+                <div class="input-group border">
+                    <div class="input-group-prepend">
+                        <span className="input-group-text border-0">
+                            <img src="https://cdn.onlinewebfonts.com/svg/img_24132.png" style="height: 20px; margin: 1px;" />
+                        </span>
+                    </div>
+                    <input type="text" class="form-control border-0">
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="insta">Instagram</label>
+                <div class="input-group border">
+                    <div class="input-group-prepend">
+                        <span className="input-group-text border-0">
+                            <img src="https://clipground.com/images/instagram-logo-new-4.png" style="height: 20px; margin: 1px;" />
+                        </span>
+                    </div>
+                    <input type="text" class="form-control border-0">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="file" class="col-sm-1 col-form-label">Logotipo*</label>
+            <div class="custom-file col-sm-5">
+                <input type="file" name="file" id="file" class="custom-file-input" required>
+                <label for="file" class="custom-file-label" data-browse="subir"></label>
+            </div>
+            <div class="col-sm-1" id="logo" style="height: 200px;"></div>
+        </div>
+        <div class="form-group">
+            <label for="description">Descripción de la empresa*</label>
+            <textarea name="description" id="" cols="30" rows="10" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="date">Fecha de inicio de actividades (DD/MM/AAAA)</label>
+            <div class="input-group border col-md-3">
+                <input type="date" class="form-control border-0">
+                <div class="input-group-prepend">
+                    <span className="input-group-text border-0">
+                        <img src="https://cdn.onlinewebfonts.com/svg/img_7417.png" alt="" style="height: 20px;">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="association">
+                ¿Conoce o pertenece a alguna asociación local de emprendedores? (especificar)
+            </label>
+            <input type="text" name="association" id="association" class="form-control">
+        </div>
+        <h2>¿Conoce ud. otros emprendedores u empresas para referenciarlos?</h2>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="referred1">Nombre de empresa</label>
+                <input type="text" name="referred1" id="referred1" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="emailReferred1">Email</label>
+                <input type="email" name="emailReferred1" id="emailReferred1" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="referred2">Nombre de empresa</label>
+                <input type="text" name="referred2" id="referred2" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="emailReferred2">Email</label>
+                <input type="email" name="emailReferred2" id="emailReferred2" class="form-control">
+            </div>
+        </div>
+        <div class="text-center">
+            <input type="submit" value="Enviar" class="btn btn-primary">    
+        </div>
+    </form>
+    <script>
+        bsCustomFileInput.init();
+
+        function filePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    //$('#logo + img').remove();
+                    //$('#logo').after('<img src="'+e.target.result+'" width="450" height="300"/>');
+                    $('#logo + embed').remove();
+                    $('#logo').after('<embed src="'+e.target.result+'" width="200" height="200">');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $("#file").change(function () {
+            filePreview(this);
+            });
+    </script>
+</body>
+</html>
